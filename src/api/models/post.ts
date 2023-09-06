@@ -7,6 +7,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import Content from './content';
+import Comment from './comment';
 
 export interface IPost {
   id: number;
@@ -31,6 +32,9 @@ class Post {
 
   @OneToMany(() => Content, content => content.post)
   contents: Content[];
+
+  @OneToMany(() => Comment, comment => comment.post)
+  comments: Comment[];
 
   @CreateDateColumn()
   createdAt: Date;

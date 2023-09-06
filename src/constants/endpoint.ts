@@ -4,4 +4,5 @@ export const Endpoint = {
   LOGIN: '/login',
   REGISTER: '/register',
   USER: '/user/:id',
+  COMMENT: '/comment/:postId',
 };

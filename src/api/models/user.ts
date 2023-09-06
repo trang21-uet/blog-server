@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import Comment from './comment';
 
 export interface IUser {
   name?: string;
@@ -29,6 +31,9 @@ class User {
 
   @Column({ length: 200 })
   avatar: string;
+
+  @OneToMany(() => Comment, comment => comment.user)
+  contents: Comment[];
 
   @CreateDateColumn()
   createdAt: Date;

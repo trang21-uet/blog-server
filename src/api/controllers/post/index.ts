@@ -1,13 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import { PostServices } from '../../services';
 
-interface PostRequest extends Request {
-  brand?: string;
-  category?: string;
-}
-
 export const getPosts = async (
-  req: PostRequest,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
