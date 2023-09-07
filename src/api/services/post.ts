@@ -31,7 +31,13 @@ export default class PostServices {
 
   static async getPost(id: number) {
     try {
-      return await db.getRepository(Post).findOneBy({ id });
+      return await db
+        .getRepository(Post)
+        .createQueryBuilder('post')
+        .leftJoinAndSelect('post.contents', 'content')
+        .where('post.id = :id', { id })
+        .orderBy('content.position')
+        .getOne();
     } catch (error) {
       throw error;
     }
