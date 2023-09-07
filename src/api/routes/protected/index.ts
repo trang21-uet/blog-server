@@ -2,6 +2,7 @@ import { HttpStatusCode } from 'axios';
 import { NextFunction, Request, Response, Router } from 'express';
 import jwt from 'jsonwebtoken';
 import { FORBIDDEN } from '../../../constants/message';
+import commentRoute from './comment';
 
 const auth = (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -21,5 +22,7 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
 };
 
 const router = Router();
+router.use(auth);
+router.use(commentRoute);
 
 export default router;

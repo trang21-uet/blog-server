@@ -31,6 +31,9 @@ class Comment {
   @Column('text')
   comment: string;
 
+  @Column({ length: 200 })
+  username: string;
+
   @CreateDateColumn()
   createdAt: Date;
 

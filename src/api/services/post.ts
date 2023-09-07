@@ -35,6 +35,7 @@ export default class PostServices {
         .getRepository(Post)
         .createQueryBuilder('post')
         .leftJoinAndSelect('post.contents', 'content')
+        .leftJoinAndSelect('post.comments', 'comment')
         .where('post.id = :id', { id })
         .orderBy('content.position')
         .getOne();

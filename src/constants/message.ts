@@ -6,3 +6,4 @@ export const PASSWORD_FAIL =
   'Mật khẩu phải gồm ít nhất 8 kí tự, trong đó có ít nhất một chữ cái và một chữ số';
 export const WRONG_ACCOUNT_INFO = 'Thông tin tài khoản không chính xác';
 export const FORBIDDEN = 'Bạn không có quyền truy cập địa chỉ này';
+export const COMMENT_CREATED = 'Bình luận thành công';
